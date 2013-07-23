@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 	private TextView mDecId;
 	private TextView mHexId;
 	private TextView mInfo;
-	private IsoDep mNfc;
+	private NfcA mNfc;
 	private StringBuilder mStringBuilder;
 
 	// Desfire commands
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
 
 	private void processIntent(Intent intent) {
 		Tag tag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
-		mNfc = IsoDep.get(tag);
+		mNfc = NfcA.get(tag);
 		try {
 			mNfc.connect();
 			Log.v("tag", "connected.");
